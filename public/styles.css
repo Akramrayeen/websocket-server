@@ -1,0 +1,263 @@
+ body {
+     font-family: 'Arial', sans-serif;
+ }
+
+ .circle {
+     position: relative;
+     width: 200px;
+     height: 200px;
+     border-radius: 50%;
+     background: rgb(137, 135, 135);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ .dw-circle {
+     position: absolute;
+     width: 10px;
+     height: 10px;
+     border-radius: 50%;
+     background: rgb(137, 135, 135);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-left: 100%;
+     margin-top: -5;
+ }
+
+ .circle::before,
+ .circle::after {
+     content: '';
+     position: absolute;
+     border: 5px solid transparent;
+     border-radius: 50%;
+ }
+
+ .circle::before {
+     top: -10px;
+     left: -10px;
+     right: -10px;
+     bottom: -10px;
+     border-top: 5px solid #2b9003;
+     animation: spin 2s linear infinite;
+ }
+
+ .circle::after {
+     top: -20px;
+     left: -20px;
+     right: -20px;
+     bottom: -20px;
+     border-top: 5px solid #0dcfe5;
+     animation: spin 4s linear infinite reverse;
+ }
+
+ @keyframes spin {
+     0% {
+         transform: rotate(0deg);
+     }
+
+     100% {
+         transform: rotate(360deg);
+     }
+ }
+
+ .button {
+     width: 150px;
+     height: 40px;
+     background: rgba(178, 13, 223, 0.3);
+     border-radius: 20px;
+     display: flex;
+     align-items: center;
+     justify-content: flex-start;
+     cursor: pointer;
+     transition: background 0.3s;
+     margin-bottom: 10px;
+     padding-left: 10px;
+ }
+
+ .button:hover {
+     background: rgba(76, 175, 80, 0.5);
+ }
+
+ .button::before {
+     content: '';
+     width: 20px;
+     height: 20px;
+     background: white;
+     border-radius: 50%;
+     margin-right: 10px;
+ }
+
+ .buttons-container {
+     position: absolute;
+     left: 150%;
+     top: 50%;
+     transform: translateY(-50%);
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+ }
+
+ .w-full {
+     height: 450px;
+     position: relative;
+ }
+
+ .overlay-text {
+     position: absolute;
+     bottom: 4px;
+     left: 4px;
+     color: white;
+     text-align: left;
+     background-color: rgba(0, 0, 0, 0.5);
+     padding: 5px;
+     border-radius: 5px;
+ }
+
+ /* Full-Screen Video Modal */
+ .video-modal {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.8);
+     display: none;
+     align-items: center;
+     justify-content: center;
+     z-index: 50;
+ }
+
+ .video-modal.active {
+     display: flex;
+ }
+
+ .video-modal iframe {
+     width: 90%;
+     height: 90%;
+ }
+
+ .close-button {
+     position: absolute;
+     top: 10px;
+     right: 20px;
+     font-size: 30px;
+     color: white;
+     cursor: pointer;
+     z-index: 100;
+ }
+
+
+ 
+ /* For mobile screens (up to 768px) */
+ @media (max-width: 767px) {
+     .circle {
+         width: 120px;
+         height: 120px;
+     }
+
+         .button {
+             width: 90px;
+             /* Adjust button size for tablets */
+             height: 35px;
+             /* Adjust button height for tablets */
+             font-size: 0.5em;
+             /* Slightly larger text for tablets */
+         }
+    
+         .button::before {
+             width: 18px;
+             /* Medium size circle */
+             height: 18px;
+         }
+
+     .dw-circle {
+         width: 35px;
+         height: 35px;
+         margin-top: 15;
+     }
+
+     .w-full {
+         height: 300px;
+     }
+
+     .buttons-container {
+         align-items: center;
+         /* C
+         enter buttons on mobile */
+     }
+
+         .overlay-text {
+
+             font-size: 0.7em;
+             /* Medium font size for tablets */
+             padding: 4px;
+             /* Adjust padding */
+         }
+
+                  .video-modal iframe {
+                      width: 85%;
+                      /* Slightly reduced for tablet */
+                      height: 85%;
+                  }
+        
+                  .close-button {
+                      top: 8px;
+                      /* Adjust position for smaller screens */
+                      right: 15px;
+                      font-size: 26px;
+                      /* Smaller font size */
+                  }
+ }
+
+
+ /* For Mobile */
+ @media (max-width: 450px) {
+
+    .circle {
+            width: 80px;
+            height: 80px;
+            
+        }
+     .button {
+         width: 80px;
+         /* Smaller width for smaller screens */
+         height: 30px;
+         /* Adjust button height for small devices */
+         font-size: 0.2em;
+         /* Smaller text for better fit */
+         padding-left: 5px;
+         /* Adjust padding */
+         margin-right: 40%;
+     }
+
+     .button::before {
+         width: 18px;
+         /* Smaller circle for small devices */
+         height: 18px;
+         /* Adjust circle size */
+     }
+          .overlay-text {
+
+              /* Adjust left margin for mobile */
+              font-size: 0.25em;
+              /* Smaller font size for mobile devices */
+              padding: 4px;
+              /* Less padding on smaller screens */
+          }
+
+                   .video-modal iframe {
+                       width: 95%;
+                       /* More width for mobile */
+                       height: 75%;
+                       /* Reduced height for mobile screens */
+                   }
+        
+                   .close-button {
+                       top: 5px;
+                       /* Adjust position for mobile */
+                       right: 10px;
+                       font-size: 20px;
+                       /* Smaller font size */
+                   }
+ }
